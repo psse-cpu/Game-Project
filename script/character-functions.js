@@ -244,24 +244,6 @@ function player3Enhance(){
             }
         }
 }
-
-function targetCharacterHit(){
-    if(gameFrameTargetCharacter !== hitGameFrameLimit){
-    ctx.clearRect(characterHitPosX, characterHitPosY, gridLength, gridLength)
-        ctx.drawImage(targetCharacterHitSpritesheet, frameTargetCharacter * spriteWidth, 0, spriteWidth, spriteHeight, characterHitPosX, characterHitPosY, gridLength, gridLength)
-        if (gameFrameTargetCharacter % animationSpeed === 0) {
-            if (frameTargetCharacter < 1) {
-                frameTargetCharacter++
-            } else {
-                (frameTargetCharacter = 0)
-            }
-        }
-        gameFrameTargetCharacter++
-        requestAnimationFrame(targetCharacterHit)
-    } else {
-        damageCalculation()
-    }
-}
 function enemy1Idle(){
     if(isTargetHit[3] === false){
         ctx.clearRect(gridLength, gridLength * 2.5, gridLength, gridLength)
@@ -389,3 +371,22 @@ function healthBar() {
         }
     }
 }
+
+function targetCharacterHit(){
+    if(gameFrameTargetCharacter !== hitGameFrameLimit){
+    ctx.clearRect(characterHitPosX, characterHitPosY, gridLength, gridLength)
+        ctx.drawImage(targetCharacterHitSpritesheet, frameTargetCharacter * spriteWidth, 0, spriteWidth, spriteHeight, characterHitPosX, characterHitPosY, gridLength, gridLength)
+        if (gameFrameTargetCharacter % animationSpeed === 0) {
+            if (frameTargetCharacter < 1) {
+                frameTargetCharacter++
+            } else {
+                (frameTargetCharacter = 0)
+            }
+        }
+        gameFrameTargetCharacter++
+        requestAnimationFrame(targetCharacterHit)
+    } else {
+        damageCalculation()
+    }
+}
+
