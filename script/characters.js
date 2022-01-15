@@ -127,8 +127,8 @@ let goyo = {
   skill2: {
       name: "Unleash Fire",
       type: "Attack",
-      damage: 100,
-      accuracy: 50,
+      damage: 110,
+      accuracy: 30,
       value: "N/A",
       boosting: "N/A",
       spritesheetSrc: "images/spritesheets/GoyoSkill2.png",
@@ -175,7 +175,7 @@ let ibongAdarna = {
   skill2: {
       name: "Wing Slash",
       type: "Attack",
-      damage: 40,
+      damage: 45,
       accuracy: 90,
       value: "N/A",
       boosting: "N/A",
@@ -240,9 +240,9 @@ let babaylan = {
 let sirena = {
   health: 340,
   attack: 76,
-  defense: 43,
+  defense: 49,
   maxAttack: 88,
-  maxDefense: 55,
+  maxDefense: 61,
   currentHealth: undefined,
   currentAttack: undefined,
   currentDefense: undefined,
