@@ -122,19 +122,3 @@ function skillSounds() {
         skillSound.play()
     }
 }
-/* 
-let isEnemy1Selected = false
-canvas.addEventListener('click', (event) => {
-    let rect = canvas.getBoundingClientRect()
-    let x = event.clientX - rect.left
-    let y = event.clientY - rect.top
-    console.log("x: " + x +" and y: " + y)
-    clickEnemy1(x, y)
-})
-function clickEnemy1(xMouse, yMouse){
-    if (xMouse >= gridLength && xMouse <= gridLength * 2 && yMouse >= gridLength * 2.5 && yMouse <= gridLength * 3.5){
-        ctx.strokeRect(gridLength, gridLength * 2.5, gridLength, gridLength)
-        ctx.lineWidth = "5px"
-    }
-}
-*/
