@@ -63,6 +63,181 @@ function skillTypeChecker(character, skill){
         characterHitChecker()
     }
 }
+
+let damage
+function checkAccuracy(){
+    randomNumber = Math.ceil(Math.random() * 100)
+    if (randomNumber <= attackingCharacter[currentSkill]["accuracy"]){
+        hitSound.play()
+        targetCharacterHit()
+    }else{
+        missSound.play()
+        messageLogs.innerHTML = "Attack Missed"
+        setTimeout(() => {
+            //statUpdate()
+            deadChecker()
+        }, 2000);
+    }
+    setTimeout(() => {
+        for(let i = 0; i < 6; i++){
+            isTargetHit[i] = false
+        }
+    
+        for(let i = 0; i < 6; i++){
+            if(targetCharacter === characters[i]){
+                idleFunctions[i]()
+                break
+            }
+        }
+        for(let i = 0; i < 6; i++){
+            if(attackingCharacter === characters[i]){
+                idleFunctions[i]()
+                break
+            }
+        }
+    }, 1000);
+}
+    
+function damageCalculation(){
+    damage = Math.ceil(attackingCharacter[currentSkill]["damage"] * (attackingCharacter.currentAttack / targetCharacter.currentDefense))
+    targetCharacter.currentHealth -= damage
+    messageLogs.innerHTML = `${targetCharacter.name} received ${damage} damage`
+
+    for(let i = 0; i < 6; i++){
+        if(targetCharacter === characters[i]){
+            index = i
+            break
+        }
+    }
+    if (targetCharacter.currentHealth <= 0){
+        isDead[index] = true
+        messageLogs.innerHTML = `${targetCharacter.name} died.`
+    }
+    //statUpdate()
+    healthBar()
+    setTimeout(() => {
+        deadChecker()
+    }, 2000);
+}
+
+function checkEnchancing(){
+    if(attackingCharacter[currentSkill]["type"] === "Enhancer"){
+        for(let i = 0; i < 6; i++){
+            if(isEnchancing[i] === true){
+                if(attackingCharacter[currentSkill]["boosting"] === "Attack"){
+                    attackBoost1 = Math.ceil(attackingCharacter.currentAttack * (attackingCharacter[currentSkill]["value"] / 100))
+                    if(attackingCharacter.currentAttack + attackBoost1 > attackingCharacter.maxAttack){
+                        attackingCharacter.currentAttack = attackingCharacter.maxAttack
+                        messageLogs.innerHTML = `Attack maxed`
+                    } else {
+                        attackingCharacter.currentAttack += attackBoost1
+                        messageLogs.innerHTML = `Attack increased`
+                    }
+                    isEnchancing[i] = false
+                    break
+                }if(attackingCharacter[currentSkill]["boosting"] === "Defense"){
+                    defenseBoost1 = Math.ceil(attackingCharacter.currentDefense * (attackingCharacter[currentSkill]["value"] / 100))
+                    if(attackingCharacter.currentDefense + defenseBoost1 > attackingCharacter.maxDefense){
+                        attackingCharacter.currentDefense = attackingCharacter.maxDefense
+                        messageLogs.innerHTML = `Defense maxed`
+                    } else {
+                        attackingCharacter.currentDefense += defenseBoost1
+                        messageLogs.innerHTML = `Defense increased`
+                    }
+                    isEnchancing[i] = false
+                    break
+                }if(attackingCharacter[currentSkill]["boosting"] === "Health"){
+                    healthBoost[0] = Math.ceil(attackingCharacter.health * (attackingCharacter[currentSkill]["value"] / 100))
+                    if(attackingCharacter.currentHealth + healthBoost[0] > attackingCharacter.health){
+                        attackingCharacter.currentHealth = attackingCharacter.health
+                        messageLogs.innerHTML = `Health Full`
+                    } else {
+                        attackingCharacter.currentHealth += healthBoost[0]
+                        messageLogs.innerHTML = `Health increased`
+                    }
+                    healthSound.play()
+                    isEnchancing[i] = false
+                    break
+                }
+            }
+        }
+    } else if(attackingCharacter[currentSkill]["type"] === "Party Enhancer"){
+        if(attackingCharacter === player1 || attackingCharacter === player2 || attackingCharacter === player3){
+            if(attackingCharacter[currentSkill]["boosting"] === "Attack"){
+                for(let i = 0; i < 3; i++){
+                    attackBoost[i] = Math.ceil(characters[i]["currentAttack"] * (attackingCharacter[currentSkill]["value"] / 100))
+                    if(characters[i]["currentAttack"] + attackBoost[i] > characters[i]["maxAttack"]){
+                        characters[i]["currentAttack"] = characters[i]["maxAttack"]
+                        setTimeout(() => {
+                            messageLogs.innerHTML = `Attack maxed`
+                        }, 1000);
+                    } else {
+                        characters[i]["currentAttack"] += attackBoost[i]
+                        setTimeout(() => {
+                            messageLogs.innerHTML = `Attack increased`
+                        }, 1000);
+                    }isEnchancing[i] = false
+                }
+            } else if(attackingCharacter[currentSkill]["boosting"] === "Defense"){
+                for(let i = 0; i < 3; i++){
+                    defenseBoost[i] = Math.ceil(characters[i]["currentDefense"] * (attackingCharacter[currentSkill]["value"] / 100))
+                    if(characters[i]["currentDefense"] + defenseBoost[i] > characters[i]["maxDefense"]){
+                        characters[i]["currentDefense"] = characters[i]["maxDefense"]
+                        setTimeout(() => {
+                            messageLogs.innerHTML = `Defense maxed`
+                        }, 1000);
+                    } else {
+                        characters[i]["currentDefense"] += defenseBoost[i]
+                        setTimeout(() => {
+                            messageLogs.innerHTML = `Defense increased`
+                        }, 1000);
+                    }
+                    isEnchancing[i] = false
+                }
+            } else if(attackingCharacter[currentSkill]["boosting"] === "Health"){
+                for(let i = 0; i < 3; i++){
+                    healthBoost[i] = Math.ceil(characters[i]["health"] * (attackingCharacter[currentSkill]["value"] / 100))
+                    if(characters[i]["currentHealth"] + healthBoost[i] > characters[i]["health"]){
+                        characters[i]["currentHealth"] = characters[i]["health"]
+                    } else {
+                        characters[i]["currentHealth"] += healthBoost[i]
+                    }
+                    healthSound.play()
+                    isEnchancing[i] = false
+                }
+                messageLogs.innerHTML = `Party Health increased`
+            }
+        } else if(attackingCharacter === enemy1 || attackingCharacter === enemy2 || attackingCharacter === enemy3){
+            if(attackingCharacter[currentSkill]["boosting"] === "Attack"){
+                for(let i = 3; i < 6; i++){
+                    characters[i]["currentAttack"] += Math.ceil(characters[i]["currentAttack"] * (attackingCharacter[currentSkill]["value"] / 100))
+                    isEnchancing[i] = false
+                }
+            } else if(attackingCharacter[currentSkill]["boosting"] === "Defense"){
+                for(let i = 3; i < 6; i++){
+                    characters[i]["currentDefense"] += Math.ceil(characters[i]["currentDefense"] * (attackingCharacter[currentSkill]["value"] / 100))
+                    isEnchancing[i] = false
+                }
+            } else if(attackingCharacter[currentSkill]["boosting"] === "Health"){
+                for(let i = 3; i < 6; i++){
+                    healthBoost[i] = Math.ceil(characters[i]["health"] * (attackingCharacter[currentSkill]["value"] / 100))
+                    if(characters[i]["currentHealth"] + healthBoost[i] > characters[i]["health"]){
+                        characters[i]["currentHealth"] = characters[i]["health"]
+                    } else {
+                        characters[i]["currentHealth"] += healthBoost[i]
+                    }
+                    healthSound.play()
+                    isEnchancing[i] = false
+                }
+            }
+        }
+    }
+    healthBar()
+    setTimeout(() => {
+        deadChecker()
+    }, 2000);
+}
+
 function skillSounds() {
     if(attackingCharacter[currentSkill]["name"] === "Slash" || 
        attackingCharacter[currentSkill]["name"] === "Slice" || 
