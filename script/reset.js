@@ -166,41 +166,11 @@ function checkEnchancing(){
             }
         }
     }
-    //statUpdate()
     healthBar()
     setTimeout(() => {
         deadChecker()
     }, 2000);
 }
-/*
-function statUpdate() {
- document.getElementById("playerStats").innerHTML = `
-                        Player 1 Current Health: ${player1.currentHealth}<br>
-                        Player 1 Current Attack: ${player1.currentAttack}<br>
-                        Player 1 Current Defense: ${player1.currentDefense}<br>
-                        
-                        Player 2 Current Health: ${player2.currentHealth}<br>
-                        Player 2 Current Attack: ${player2.currentAttack}<br>
-                        Player 2 Current Defense: ${player2.currentDefense}<br>
-                        
-                        Player 3 Current Health: ${player3.currentHealth}<br>
-                        Player 3 Current Attack: ${player3.currentAttack}<br>
-                        Player 3 Current Defense: ${player3.currentDefense}`
-
-document.getElementById("enemyStats").innerHTML = `
-                        Enemy 1 Current Health: ${enemy1.currentHealth}<br>
-                        Enemy 1 Current Attack: ${enemy1.currentAttack}<br>
-                        Enemy 1 Current Defense: ${enemy1.currentDefense}<br>
-                        
-                        Enemy 2 Current Health: ${enemy2.currentHealth}<br>
-                        Enemy 2 Current Attack: ${enemy2.currentAttack}<br>
-                        Enemy 2 Current Defense: ${enemy2.currentDefense}<br>
-                        
-                        Enemy 3 Current Health: ${enemy3.currentHealth}<br>
-                        Enemy 3 Current Attack: ${enemy3.currentAttack}<br>
-                        Enemy 3 Current Defense: ${enemy3.currentDefense}`
-}
-*/
 function resetRound(round, level){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     canvas.style.backgroundSize = "100% 100%"
