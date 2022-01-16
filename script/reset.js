@@ -1,4 +1,5 @@
 function statBoostPicker(stat){
+    enhanceSound.play()
     document.getElementById("battleButtons").innerHTML = ""
     if(stat === "attack"){
         player1.attack += 1
