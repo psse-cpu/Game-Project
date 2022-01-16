@@ -58,12 +58,12 @@ function deadChecker(){
             ctx.textAlign = "center"
             ctx.font = `50px verdana`
             ctx.fillText(`Level ${nextLevel}: Round ${nextRound}`, gridLength*2.5, gridLength * 2)
-            messageLogs.innerHTML = ""
-            setTimeout(() => {
-                setTimeout(() => {
-                    resetRound(nextRound, nextLevel)
-                }, 1);
-            }, 3000);
+            messageLogs.innerHTML = "Choose which stat to gain"
+            document.getElementById("battleButtons").innerHTML = `
+            <button onclick="statBoostPicker('attack')">Attack</button>
+            <button onclick="statBoostPicker('defense')">Defense</button>
+            <button onclick="statBoostPicker('health')">Health</button>
+            `
         } else {
             finalBossMusic.pause()
             finalBossMusic.currentTime = 0
