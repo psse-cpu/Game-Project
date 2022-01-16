@@ -1,3 +1,27 @@
+function statBoostPicker(stat){
+    document.getElementById("battleButtons").innerHTML = ""
+    if(stat === "attack"){
+        player1.attack += 1
+        player2.attack += 1
+        player3.attack += 1
+        player1.maxAttack += 1
+        player2.maxAttack += 1
+        player3.maxAttack += 1
+    } else if(stat === "defense"){
+        player1.defense += 1
+        player2.defense += 1
+        player3.defense += 1
+        player1.maxDefense += 1
+        player2.maxDefense += 1
+        player3.maxDefense += 1
+    } else if(stat === "health"){
+        player1.health += 1
+        player2.health += 1
+        player3.health += 1
+    }
+    resetRound(nextRound, nextLevel)
+}
+
 function resetRound(round, level){
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     canvas.style.backgroundSize = "100% 100%"
@@ -117,6 +141,27 @@ function resetRound(round, level){
     player3.currentHealth = player3.health
     player3.currentAttack = player3.attack
     player3.currentDefense = player3.defense
+    
+    for(let i = level; i < 4; i++){
+        enemy1.health += ((i-1) * 5)
+        enemy1.attack += ((i-1) * 5)
+        enemy1.defense += ((i-1) * 5)
+        enemy1.maxAttack += ((i-1) * 5)
+        enemy1.maxDefense += ((i-1) * 5)
+
+        enemy2.health += ((i-1) * 5)
+        enemy2.attack += ((i-1) * 5)
+        enemy2.defense += ((i-1) * 5)
+        enemy2.maxAttack += ((i-1) * 5)
+        enemy2.maxDefense += ((i-1) * 5)
+
+        enemy3.health += ((i-1) * 5)
+        enemy3.attack += ((i-1) * 5)
+        enemy3.defense += ((i-1) * 5)
+        enemy3.maxAttack += ((i-1) * 5)
+        enemy3.maxDefense += ((i-1) * 5)
+        break
+    }
 
     enemy1.currentHealth = enemy1.health
     enemy1.currentAttack = enemy1.attack
