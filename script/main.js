@@ -107,18 +107,9 @@ let enemy1IdleLoop
 let enemy2IdleLoop
 let enemy3IdleLoop
 
-let healthBoost1
-let healthBoost2
-let healthBoost3
-let attackBoost1
-let attackBoost2
-let attackBoost3
-let defenseBoost1
-let defenseBoost2
-let defenseBoost3
-let healthBoost = [healthBoost1, healthBoost2, healthBoost3]
-let defenseBoost = [defenseBoost1, defenseBoost2, defenseBoost3]
-let attackBoost = [attackBoost1, attackBoost2, attackBoost3]
+let healthBoost
+let defenseBoost
+let attackBoost
 
 let spriteWidth = 192
 let spriteHeight = 192
