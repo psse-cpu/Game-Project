@@ -144,11 +144,8 @@ function attackingCharacterSkill(){
         } else {
             for(let i = 0; i < 6; i++){
                 if(attackingCharacter === characters[i]){
-                    for(let j = 0; j < 3; j++){
-                        isEnchancing[j] = true
-                    }
+                    isEnchancing[i] = true
                     idleFunctions[i]()
-                    break
                 }
             }
             checkEnchancing(currentSkill)
