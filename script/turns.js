@@ -128,7 +128,7 @@ function checkEnchancing(){
             if(isEnchancing[i] === true){
                 if(attackingCharacter[currentSkill]["boosting"] === "Attack" || attackingCharacter[currentSkill]["boosting"] === "Attack and Defense"){
                     attackBoost = Math.ceil(attackingCharacter.currentAttack * (attackingCharacter[currentSkill]["value"] / 100))
-                    if(attackingCharacter.currentAttack + attackBoost1 > attackingCharacter.maxAttack){
+                    if(attackingCharacter.currentAttack + attackBoost > attackingCharacter.maxAttack){
                         attackingCharacter.currentAttack = attackingCharacter.maxAttack
                         messageLogs.innerHTML = `Attack maxed`
                     } else {
@@ -137,7 +137,7 @@ function checkEnchancing(){
                     }
                 }if(attackingCharacter[currentSkill]["boosting"] === "Defense" || attackingCharacter[currentSkill]["boosting"] === "Attack and Defense"){
                     defenseBoost = Math.ceil(attackingCharacter.currentDefense * (attackingCharacter[currentSkill]["value"] / 100))
-                    if(attackingCharacter.currentDefense + defenseBoost1 > attackingCharacter.maxDefense){
+                    if(attackingCharacter.currentDefense + defenseBoost > attackingCharacter.maxDefense){
                         attackingCharacter.currentDefense = attackingCharacter.maxDefense
                         messageLogs.innerHTML = `Defense maxed`
                     } else {
