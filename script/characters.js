@@ -1,9 +1,9 @@
 let lapuLapu = {
-  health: 470,
+  health: 400,
   attack: 49,
   defense: 74,
-  maxAttack: 64,
-  maxDefense: 84,
+  maxAttack: 59,
+  maxDefense: 89,
   currentHealth: undefined,
   currentAttack: undefined,
   currentDefense: undefined,
