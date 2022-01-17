@@ -127,21 +127,21 @@ function checkEnchancing(){
         for(let i = 0; i < 6; i++){
             if(isEnchancing[i] === true){
                 if(attackingCharacter[currentSkill]["boosting"] === "Attack" || attackingCharacter[currentSkill]["boosting"] === "Attack and Defense"){
-                    attackBoost1 = Math.ceil(attackingCharacter.currentAttack * (attackingCharacter[currentSkill]["value"] / 100))
+                    attackBoost = Math.ceil(attackingCharacter.currentAttack * (attackingCharacter[currentSkill]["value"] / 100))
                     if(attackingCharacter.currentAttack + attackBoost1 > attackingCharacter.maxAttack){
                         attackingCharacter.currentAttack = attackingCharacter.maxAttack
                         messageLogs.innerHTML = `Attack maxed`
                     } else {
-                        attackingCharacter.currentAttack += attackBoost1
+                        attackingCharacter.currentAttack += attackBoost
                         messageLogs.innerHTML = `Attack increased`
                     }
                 }if(attackingCharacter[currentSkill]["boosting"] === "Defense" || attackingCharacter[currentSkill]["boosting"] === "Attack and Defense"){
-                    defenseBoost1 = Math.ceil(attackingCharacter.currentDefense * (attackingCharacter[currentSkill]["value"] / 100))
+                    defenseBoost = Math.ceil(attackingCharacter.currentDefense * (attackingCharacter[currentSkill]["value"] / 100))
                     if(attackingCharacter.currentDefense + defenseBoost1 > attackingCharacter.maxDefense){
                         attackingCharacter.currentDefense = attackingCharacter.maxDefense
                         messageLogs.innerHTML = `Defense maxed`
                     } else {
-                        attackingCharacter.currentDefense += defenseBoost1
+                        attackingCharacter.currentDefense += defenseBoost
                         messageLogs.innerHTML = `Defense increased`
                     }
                 }if(attackingCharacter[currentSkill]["boosting"] === "Health"){
