@@ -38,50 +38,57 @@ function playerList(playerNumber){
         <img src="images/Portraits/Philippine Eagle.png" alt="Philippine Eagle" id="portraits" onclick="setPlayer(players[8], selectedPlayer)"/>
         `
 }
+let selectionStatus
 function setPlayer(player, playerNumber){
     if(playerNumber === "player1"){
         for(let i = 0; i < 9; i++){
             if(player === players[i]){
                 player1 = players[i]
+                if(selectionStatus === "good" && (player3 === player2 || player1 === player3 || player2 === player1)){
+                    alert('No character duplication! Select another character')
+                } else {
+                    characterDescriptionBox(player1)
+                    player1SelectionP.innerHTML = `<button onclick="playerList('player1')">Player 1</button>: ${player1.name}`
+                    player1IdleSpritesheet.src = player1.idle.spritesheetSrc
+                    player1EnhanceSpritesheet.src = player1.enhance.spritesheetSrc
+                }
                 break
             }
         }
-        document.querySelector("h2").innerHTML = `Selecting Player 1</b>...`
-        characterDescriptionBox(player1)
-        player1SelectionP.innerHTML = `<button onclick="playerList('player1')">Player 1</button>: ${player1.name}`
-        player1IdleSpritesheet.src = player1.idle.spritesheetSrc
-        player1EnhanceSpritesheet.src = player1.enhance.spritesheetSrc
+        selectionStatus = "good"
     } else if(playerNumber === "player2"){
         for(let i = 0; i < 9; i++){
             if(player === players[i]){
                 player2 = players[i]
-                if(player3 === player2 || player1 === player3 || player2 === player1){
+                if(selectionStatus === "good" && (player3 === player2 || player1 === player3 || player2 === player1)){
                     alert('No character duplication! Select another character')
+                } else {
+                    characterDescriptionBox(player2)
+                    player2SelectionP.innerHTML = `<button onclick="playerList('player2')">Player 2</button>: ${player2.name}`
+                    player2IdleSpritesheet.src = player2.idle.spritesheetSrc
+                    player2EnhanceSpritesheet.src = player2.enhance.spritesheetSrc
                 }
                 break
             }
         }
-        document.querySelector("h2").innerHTML = `Selecting Player 2</b>...`
-        characterDescriptionBox(player2)
-        player2SelectionP.innerHTML = `<button onclick="playerList('player2')">Player 2</button>: ${player2.name}`
-        player2IdleSpritesheet.src = player2.idle.spritesheetSrc
-        player2EnhanceSpritesheet.src = player2.enhance.spritesheetSrc
+        selectionStatus = "good"
     } else if(playerNumber === "player3"){
         for(let i = 0; i < 9; i++){
             if(player === players[i]){
                 player3 = players[i]
-            if(player3 === player2 || player3 === player1 || player2 === player1){
+            if(selectionStatus === "good" && (player3 === player2 || player1 === player3 || player2 === player1)){
                     alert('No character duplication! Select another character')
+                } else {
+                    characterDescriptionBox(player3)
+                    player3SelectionP.innerHTML = `<button onclick="playerList('player3')">Player 3</button>: ${player3.name}`
+                    player3IdleSpritesheet.src = player3.idle.spritesheetSrc
+                    player3EnhanceSpritesheet.src = player3.enhance.spritesheetSrc
                 }
                 break
             }
         }
-        document.querySelector("h2").innerHTML = `Selecting Player 3</b>...`
-        characterDescriptionBox(player3)
-        player3SelectionP.innerHTML = `<button onclick="playerList('player3')">Player 3</button>: ${player3.name}`
-        player3IdleSpritesheet.src = player3.idle.spritesheetSrc
-        player3EnhanceSpritesheet.src = player3.enhance.spritesheetSrc
     }
+    selectionStatus = "good"
     buttonSound2.play()
 }
 function characterDescriptionBox(selectedCharacter){
