@@ -368,8 +368,8 @@ let tamaraw = {
       type: "Enhancer",
       damage: "N/A",
       accuracy: 100,
-      value: 5,
-      boosting: "Attack and Defense",
+      value: 8,
+      boosting: "Defense",
       spritesheetSrc: "images/spritesheets/TamarawSkill2.png",
       frameCount: 12
   },
@@ -406,8 +406,8 @@ let tarsier = {
       type: "Party Enhancer",
       damage: "N/A",
       accuracy: 100,
-      value: 5,
-      boosting: "Party Attack and Defense",
+      value: 8,
+      boosting: "Attack",
       spritesheetSrc: "images/spritesheets/TarsierSkill1.png",
       frameCount: 9
   },
