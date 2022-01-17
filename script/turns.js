@@ -120,7 +120,7 @@ function checkEnchancing(){
     if(attackingCharacter[currentSkill]["type"] === "Enhancer"){
         for(let i = 0; i < 6; i++){
             if(isEnchancing[i] === true){
-                if(attackingCharacter[currentSkill]["boosting"] === "Attack" || attackingCharacter[currentSkill]["boosting"] === "Attack and Defense"){
+                if(attackingCharacter[currentSkill]["boosting"] === "Attack"){
                     attackBoost = Math.ceil(attackingCharacter.currentAttack * (attackingCharacter[currentSkill]["value"] / 100))
                     if(attackingCharacter.currentAttack + attackBoost > attackingCharacter.maxAttack){
                         attackingCharacter.currentAttack = attackingCharacter.maxAttack
@@ -129,7 +129,7 @@ function checkEnchancing(){
                         attackingCharacter.currentAttack += attackBoost
                         messageLogs.innerHTML = `Attack increased`
                     }
-                }if(attackingCharacter[currentSkill]["boosting"] === "Defense" || attackingCharacter[currentSkill]["boosting"] === "Attack and Defense"){
+                }if(attackingCharacter[currentSkill]["boosting"] === "Defense"){
                     defenseBoost = Math.ceil(attackingCharacter.currentDefense * (attackingCharacter[currentSkill]["value"] / 100))
                     if(attackingCharacter.currentDefense + defenseBoost > attackingCharacter.maxDefense){
                         attackingCharacter.currentDefense = attackingCharacter.maxDefense
