@@ -31,6 +31,7 @@ function targetSelector(character){
         }
     } else if (character === "player"){
         let i = 0
+        randomNumber = undefined
         while(randomNumber !== i){
             i = 0
             for(i = 0; i < 3; i++){
