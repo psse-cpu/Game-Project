@@ -30,22 +30,16 @@ function targetSelector(character){
             <button onclick="changeTargetCharacter(enemy3)">Enemy 3 Target</button>`
         }
     } else if (character === "player"){
-        for(let i = 1; i <= 3; i++){
-            randomNumber  = Math.ceil(Math.random() * 3)
-            if(randomNumber === 1){
-                if(isDead[0] === false){
-                    changeTargetCharacter(player1)
-                    break
-                }
-            } else if (randomNumber === 2){
-                if(isDead[1] === false){
-                    changeTargetCharacter(player2)
-                    break
-                }
-            } else {
-                if(isDead[2] === false){
-                    changeTargetCharacter(player3)
-                    break
+        let i = 0
+        while(randomNumber !== i){
+            i = 0
+            for(i = 0; i < 3; i++){
+                randomNumber  = Math.floor(Math.random() * 3)
+                if(randomNumber === i){
+                    if(isDead[i] === false){
+                        changeTargetCharacter(characters[i])
+                        break
+                    }
                 }
             }
         }
