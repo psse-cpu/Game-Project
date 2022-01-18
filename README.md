@@ -1,6 +1,12 @@
 # Game-Project
 Final Project for Software Development I
 
+## Authors
+
+Kyle Dominic Lomigo [@KyleDom](https://github.com/KyleDom)  
+Armell Salazar [@Tronz88](https://github.com/Tronz88)  
+Yoshifumi Suzuki [@Yoshifumi12](https://github.com/Yoshifumi12)
+
 ## KulPi (Kulturang Pinoy) RPG
 ![Game Logo](https://raw.githubusercontent.com/KyleDom/Game-Project/main/images/game%20logo.jpg)
 
