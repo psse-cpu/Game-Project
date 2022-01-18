@@ -4,7 +4,7 @@ Final Project for Software Development I
 ## KulPi (Kulturang Pinoy) RPG
 ![Game Logo](https://raw.githubusercontent.com/KyleDom/Game-Project/main/images/game%20logo.jpg)
 
-Game link: kyledom.github.io/Game-Project/game.html
+Game link: (kyledom.github.io/Game-Project/game.html)
 
 ## Game Description
 A 3 vs 3 turn-based game where you pick three out of nine characters.
