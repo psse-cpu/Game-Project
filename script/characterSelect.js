@@ -29,7 +29,7 @@ function playerList(playerNumber){
         <img src="images/Portraits/Jose Rizal.png" alt="Jose Rizal" id="portraits" onclick="setPlayer(players[1], selectedPlayer)"/>
         <img src="images/Portraits/Goyo.png" alt="Goyo" id="portraits" onclick="setPlayer(players[2], selectedPlayer)"/>
         <br>
-        <img src="images/Portraits/babaylan.png" alt="Babaylan" id="portraits" onclick="setPlayer(players[3], selectedPlayer)"/>
+        <img src="images/Portraits/Babaylan.png" alt="Babaylan" id="portraits" onclick="setPlayer(players[3], selectedPlayer)"/>
         <img src="images/Portraits/Ibong Adarna.png" alt="Ibong Adarna" id="portraits" onclick="setPlayer(players[4], selectedPlayer)"/>
         <img src="images/Portraits/Sirena.png" alt="Sirena" id="portraits" onclick="setPlayer(players[5], selectedPlayer)"/>
             <br>
